@@ -1,0 +1,127 @@
+from scrapy import Spider, Request
+
+
+class noHideSpider(Spider):
+    name = 'noHide'
+    allowed_domains = ['nohide.com']
+    start_url = 'https://www.nohide.space/'
+    web_url = 'https://www.nohide.space/'
+
+    custom_settings = {
+
+        "DOWNLOADER_MIDDLEWARES": {
+            "noHideCrawler.downloader_middleware.noHideDownloaderMiddleware": 402,
+            # 'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+            # 'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
+        },
+        "AUTOTHROTTLE_ENABLED": True,
+        "AUTOTHROTTLE_START_DELAY": 10,
+        "AUTOTHROTTLE_DEBUG": True,
+        "DOWNLOAD_DELAY": 45,
+    }
+
+    def __init__(self, recrawler=None, **kwargs):
+
+        if recrawler:
+            self.custom_settings['AUTOTHROTTLE_START_DELAY'] = 45
+
+        super().__init__(recrawler=recrawler, **kwargs)
+
+    def start_requests(self):
+        yield Request(self.web_url, callback=self.parse, errback=self._logerror)
+
+    def parse(self, response):
+        print(f"@@@@@@ {response}")
+
+        return
+
+    def _logerror(self, failure):
+        self.logger.debug(f"[NO-HIDE-ERROR-SPIDER] failure: {failure.value}")
+
+
+
+
+
+
+
+
+----------------------------
+
+from twisted.internet.defer import maybeDeferred
+from scrapy.utils.httpobj import urlparse_cached
+from scrapy.exceptions import StopDownload
+from json import loads as json_loads, dumps as json_dumps
+from urllib.parse import urlencode
+from scrapy import Request
+import logging, os, random
+from nohideCrawler.helpers import process_headers, extract_value
+
+logger = logging.getLogger(__name__)
+
+
+class noHideDownloaderMiddleware(object):
+
+    DOWNLOAD_PRIORITY = 1000
+
+    def __init__(self, crawler):
+        self.crawler = crawler
+        self.settings = self._crawler.settings
+        self.main_headers = self.settings['NO_HIDE_HEADERS']
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(crawler)
+
+    def process_request(self, request, spider):
+
+        print(f"========> {request}")
+
+        return maybeDeferred(self.cloud_flare, request, spider)
+
+    def cloud_flare(self, request, spider):
+        StopDownload()
+
+        # dfd = self._crawler.engine.download(req)
+        #
+        # # add callback after make these request
+        # dfd.addCallback(self._login_parse, request)
+        #
+        # # if has an error then handle the callback error
+        # dfd.addErrback(self._logerror, request)
+        #
+        # return dfd
+
+
+
+
+
+
+
+---------
+
+
+NO_HIDE_HEADERS = {
+
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "Accept-Encoding": "gzip, deflate, br, zstd",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Connection": "keep-alive",
+    "Host": "www.nohide.space",
+    "sec-ch-ua": "\"Chromium\";v=\"128\", \"Not;A=Brand\";v=\"24\", \"Google Chrome\";v=\"128\"",
+    "sec-ch-ua-arch": "arm",
+    "sec-ch-ua-bitness": "64",
+    "sec-ch-ua-full-version": "128.0.6613.115",
+    "sec-ch-ua-full-version-list": "\"Chromium\";v=\"128.0.6613.115\", \"Not;A=Brand\";v=\"24.0.0.0\", \"Google Chrome\";v=\"128.0.6613.115\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-model": "",
+    "sec-ch-ua-platform": "macOS",
+    "sec-ch-ua-platform-version": "14.3.1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-User": "?1",
+    "Upgrade-Insecure-Requests": "1"
+
+}
+
+

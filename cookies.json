@@ -1,0 +1,50 @@
+{
+   "52626766150": {
+      "ds_user_id": "52626766150",
+      "sessionid": "52626766150%3A57JpfvlCBmWCAu%3A20",
+      "rur": "\"NAO\\05452626766150\\0541686655707:01f72544675ea46662086daee73b60eb55b55f0731ecd15c443ac8122b979982b899ca4d\"",
+      "mid": "YqcfSAAEAAEXjFWfYZo7PzZLYztj",
+      "ig_did": "B4315F14-C51F-4F69-A2B1-850C5B27584B",
+      "ig_nrcb": 1
+   },
+   "52827619650": {
+      "ds_user_id": "52827619650",
+      "sessionid": "52827619650%3Ak5S4mhDBnqLXq1%3A20",
+      "rur": "\"ODN\\05452827619650\\0541686655888:01f73d84fc2854869d93173b73735fb4f30354cc87fb9097fca0d90f6b1f550b1bf1f792\"",
+      "mid": "Yqcf7wAEAAHgUGP9YVFK0Wx2fig0",
+      "ig_did": "06549A84-2259-4A81-8DE3-E9915363B013",
+      "ig_nrcb": 1
+   },
+   "52684441974": {
+      "ds_user_id": "52684441974",
+      "sessionid": "52684441974%3Ac5dEKOIgVBFblI%3A13",
+      "rur": "\"RVA\\05452684441974\\0541686656077:01f7eeacd73f2b7de84a16b38b61c6f5d215a2be204e693490e3ae7c5cdf0bcd9f8c1614\"",
+      "mid": "YqcgfQAEAAHGebeaXSXaDaAVDwzn",
+      "ig_did": "D43F7BF7-2089-4683-8232-4732D4BC2869",
+      "ig_nrcb": 1
+   },
+   "53290990896": {
+      "mid": "YkVdugAEAAFnk0JZc2_0dqpOFRgK",
+      "ig_did": "5ED0A772-0BB0-49B6-B49D-37097DBA0A34",
+      "ig_nrcb": 1,
+      "sessionid": "53290990896%3AChSH2X8wJ1mvth%3A7",
+      "ds_user_id": "53290990896",
+      "rur": "\"ASH\\05453290990896\\0541683302822:01f7676bf037283bad4b261b5a763ad7d1bc29ca23bcdbe0db3563b493febf2d8b2f9630\""
+   },
+   "52948213736": {
+      "mid": "YqchUQAEAAEUxauE5RyF7JNXAgYm",
+      "ig_did": "7111B7B1-4DCF-40FE-BB7A-3C2663514AE5",
+      "ig_nrcb": 1,
+      "sessionid": "52948213736%3AjzHpdK3vpLMw61%3A28",
+      "ds_user_id": "52948213736",
+      "rur": "\"CLN\\05452948213736\\0541686656225:01f77d07c0d2e12671253ca204ecdc14edc7aab182b2424550500381c08a5e37735bb240\""
+   },
+   "53139973653": {
+      "mid": "YqchzQAEAAFCopxn5-IvX0aKWR85",
+      "ig_did": "7DD7C7E2-66A7-422D-A1E7-B730DA94F469",
+      "ig_nrcb": 1,
+      "sessionid": "53139973653%3AeycVK2pMvjyEQF%3A9",
+      "ds_user_id": "53139973653",
+      "rur": "\"ODN\\05453139973653\\0541686656349:01f7f074feb12cfc3e4b00b65708325cabeae7a75e5a1f5b3d9e4810e2c0614efbaf85ef\""
+   }
+}

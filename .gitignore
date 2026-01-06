@@ -1,0 +1,11 @@
+*.sqlite
+*.pyc
+**__pycache__
+pd.py
+instagram_old_spider.py
+.DS_Store
+page_info
+*.log
+**media
+**exports
+*.vscode
